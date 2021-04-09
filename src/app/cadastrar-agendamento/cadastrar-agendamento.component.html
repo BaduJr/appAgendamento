@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Novo Agendamento</h1>
+
+<form [formGroup]="agendamentoForm">
+    <p>
+        <mat-form-field appearance="fill">
+        <mat-label>Data</mat-label>
+            <input matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </p>
+
+    <p>
+        <mat-form-field>
+        <mat-label>Aluno</mat-label>
+        <mat-select>
+            <mat-option value="option1">Aluno 1</mat-option>
+            <mat-option value="option2">Aluno 2</mat-option>
+        </mat-select>
+        </mat-form-field>
+    </p>
+    
+    <p>
+        <mat-form-field>
+        <mat-label>Professor</mat-label>
+        <mat-select>
+            <mat-option value="option1">Professor 1</mat-option>
+        </mat-select>
+        </mat-form-field>
+    </p>
+
+    <button mat-button [disabled]="agendamentoForm.invalid" cdkFocusInitial (click)="saveOnClick()">Save</button>
+</form>
