@@ -1,6 +1,6 @@
-<mat-toolbar color="primary">    
-    <button mat-button routerLink="/cadastrarAgendamento">Cadastrar Agendamento</button>  
-    <button mat-button routerLink="/agendamento">Listar Agendamentos</button>
-  </mat-toolbar>
-  
-  <router-outlet></router-outlet>
+<mat-toolbar color="primary" *ngIf="isLoggedIn$ | async">    
+  <button mat-button routerLink="/cadastrarAgendamento">Cadastrar Agendamento</button>  
+  <button mat-button routerLink="/agendamento">Listar Agendamentos</button>
+</mat-toolbar>
+
+<router-outlet></router-outlet>

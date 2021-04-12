@@ -1,5 +1,8 @@
 import { HttpClient } from '@angular/common/http';
+import { stringify } from '@angular/compiler/src/util';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { UsuariosDTO } from './usuario.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +18,10 @@ export class UsuariosService {
 		return this.httpClient.get(this.SERVER_URL);
 	} 
   
+  public obterUsuarioPorLoginESenha(login: string, senha: string){
+    return this.httpClient.get(this.SERVER_URL + '/obterUsuarioPorLoginESenha/'+login+'/'+senha);
+	} 
+
   // public save(data: any) {
   //   return this.httpClient.post(this.SERVER_URL, data); 
   // }

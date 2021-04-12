@@ -3,7 +3,7 @@
 <form [formGroup]="agendamentoForm">
     <p>
         <mat-form-field appearance="fill">
-        <mat-label>Data</mat-label>
+            <mat-label>Data</mat-label>
             <input matInput required [matDatepicker]="picker" [min]="dataMinima" formControlName="data">
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
@@ -12,10 +12,10 @@
     
     <p>
         <mat-form-field>
-        <mat-label>Professor</mat-label>
-        <mat-select required [(value)]="professor" formControlName="professor">
-            <mat-option *ngFor="let prof of dataSource" [value]="prof.id">{{prof.nome}}</mat-option>
-        </mat-select>
+            <mat-label>Professor</mat-label>
+            <mat-select required [(value)]="professor" formControlName="professor">
+                <mat-option *ngFor="let prof of dataSource" [value]="prof.id">{{prof.nome}}</mat-option>
+            </mat-select>
         </mat-form-field>
     </p>
 

@@ -10,6 +10,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/Datepicker';
 import { MatNativeDateModule,  MAT_DATE_LOCALE } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -20,6 +21,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { CadastrarAgendamentoComponent } from './cadastrar-agendamento/cadastrar-agendamento.component';
+import { AuthService } from './auth.service';
+import { AuthGuard } from './Auth.guard';
 
 const materialModules = [
   MatButtonModule,
@@ -29,7 +32,8 @@ const materialModules = [
   MatFormFieldModule,
   MatTableModule,
   MatDatepickerModule,
-  MatNativeDateModule
+  MatNativeDateModule,
+  MatCardModule
 ];
 
 @NgModule({
@@ -52,6 +56,8 @@ const materialModules = [
     materialModules
   ],
   providers: [
+    AuthService,
+    AuthGuard,
     MatDatepickerModule,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
   ],
