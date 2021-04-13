@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Novo usuário</h1>
+<form [formGroup]="usuarioForm">
+  
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Nome</mat-label>
+      <input matInput required ng-maxlength="5" formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Login</mat-label>
+        <input matInput required ng-maxlength="5" formControlName="login">
+    </mat-form-field>
+
+    <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput type="password" required ng-maxlength="5" formControlName="senha">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-actions>
+    <button mat-button (click)="cancelOnClick()">Cancelar</button>
+    <button [disabled]="usuarioForm.invalid" mat-raised-button color="primary" cdkFocusInitial (click)="saveOnClick()">Salvar</button>
+  </div>
+</form>

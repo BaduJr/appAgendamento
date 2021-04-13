@@ -11,8 +11,8 @@ export class AgendamentoService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public obterTodos(){  
-		return this.httpClient.get(this.SERVER_URL);
+  public obterTodos(idusuario: string){  
+		return this.httpClient.get(this.SERVER_URL + '/' + idusuario);
 	} 
   
   public save(data: any) {

@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map, take } from 'rxjs/operators';
+import { MatDialog } from '@angular/material/dialog';
 import { AuthService } from '../auth.service';
+import { CadastrarUsuarioComponent } from '../cadastrar-usuario/cadastrar-usuario.component';
 
 @Component({
   selector: 'app-login',
@@ -17,9 +16,9 @@ export class LoginComponent implements OnInit {
   });
   
   constructor(
-    private router: Router,
     private formBuilder: FormBuilder,
-    private authService: AuthService
+    private authService: AuthService,
+    public dialog: MatDialog
   ) { }
 
   ngOnInit(): void {
@@ -32,20 +31,16 @@ export class LoginComponent implements OnInit {
   login(): void {
     if (this.loginForm.valid) {
       this.authService.login(this.loginForm.value);
-
-      console.log('this.authService.isLoggedIn',this.authService.isLoggedIn);
-
-      // if(this.authService.isLoggedIn
-      //   .pipe(take(1),
-      //     map((isLoggedIn: boolean) => {
-      //       if (!isLoggedIn){
-      //         return true;
-      //       }
-      //       return false;
-      //     })
-      //   )){
-      //   alert('Login ou senha incorretos');
-      // }
     }
+    else
+    {
+      alert('Preencha os campos de login e senha');
+    }
+  }
+
+  abrirModal(): void {
+    this.dialog.open(CadastrarUsuarioComponent, {
+      width: '250px'
+    });
   }
 }

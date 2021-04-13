@@ -23,6 +23,7 @@ import { AgendamentoComponent } from './agendamento/agendamento.component';
 import { CadastrarAgendamentoComponent } from './cadastrar-agendamento/cadastrar-agendamento.component';
 import { AuthService } from './auth.service';
 import { AuthGuard } from './Auth.guard';
+import { CadastrarUsuarioComponent } from './cadastrar-usuario/cadastrar-usuario.component';
 
 const materialModules = [
   MatButtonModule,
@@ -41,7 +42,8 @@ const materialModules = [
     AppComponent,
     LoginComponent,
     AgendamentoComponent,
-    CadastrarAgendamentoComponent
+    CadastrarAgendamentoComponent,
+    CadastrarUsuarioComponent
   ],
   imports: [
     BrowserModule,
@@ -61,6 +63,7 @@ const materialModules = [
     MatDatepickerModule,
     {provide: MAT_DATE_LOCALE, useValue: 'pt-BR'}
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [CadastrarUsuarioComponent]
 })
 export class AppModule { }

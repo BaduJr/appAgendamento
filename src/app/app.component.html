@@ -1,6 +1,9 @@
-<mat-toolbar color="primary" *ngIf="isLoggedIn$ | async">    
-  <button mat-button routerLink="/cadastrarAgendamento">Cadastrar Agendamento</button>  
+<mat-toolbar color="primary" *ngIf="isLogado$ | async">    
+  <button mat-button routerLink="/cadastrarAgendamento">Cadastrar Agendamento</button>
   <button mat-button routerLink="/agendamento">Listar Agendamentos</button>
+  <span class="example-spacer"></span>
+  <span>{{ nomeUsuario }}</span>
+  <button mat-button (click)="logout()">Sair</button>
 </mat-toolbar>
 
 <router-outlet></router-outlet>

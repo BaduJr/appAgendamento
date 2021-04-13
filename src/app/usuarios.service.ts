@@ -22,7 +22,7 @@ export class UsuariosService {
     return this.httpClient.get(this.SERVER_URL + '/obterUsuarioPorLoginESenha/'+login+'/'+senha);
 	} 
 
-  // public save(data: any) {
-  //   return this.httpClient.post(this.SERVER_URL, data); 
-  // }
+  public salvarUsuario(data: any) {
+    return this.httpClient.post(this.SERVER_URL, data); 
+  }
 }

@@ -7,8 +7,8 @@ import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: AgendamentoComponent, canActivate: [AuthGuard] },
-  { path: 'agendamento', component: AgendamentoComponent },
-  { path: 'cadastrarAgendamento', component: CadastrarAgendamentoComponent },
+  { path: 'agendamento', component: AgendamentoComponent, canActivate: [AuthGuard] },
+  { path: 'cadastrarAgendamento', component: CadastrarAgendamentoComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
 ];
 

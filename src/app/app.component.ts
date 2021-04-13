@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
+import { map, take } from 'rxjs/operators';
 import { AuthService } from './auth.service';
 
 @Component({
@@ -10,15 +11,23 @@ import { AuthService } from './auth.service';
 export class AppComponent implements OnInit{
   title = 'appAgendamento';
   
-  isLoggedIn$: Observable<boolean>;
+  isLogado$: Observable<boolean>;
+  nomeUsuario$: Observable<string>;
+  nomeUsuario: string;
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
-    this.isLoggedIn$ = this.authService.isLoggedIn; // {2}
+    this.isLogado$ = this.authService.isLogado;
+    this.authService.NomeUsuario.pipe(take(1),
+    map((nomeUsuario: string) => {
+      this.nomeUsuario = nomeUsuario;
+    }));
   }
 
-  onLogout(){
+  logout(){
     this.authService.logout();
   }
 }

@@ -15,9 +15,14 @@ export interface Usuario{
 export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(false);
+  private nomeUsuario = new BehaviorSubject<string>('');
 
-  get isLoggedIn() {
+  get isLogado() {
     return this.loggedIn.asObservable();
+  }
+
+  get NomeUsuario() {
+    return this.nomeUsuario.asObservable();
   }
 
   constructor(
@@ -32,17 +37,24 @@ export class AuthService {
       .subscribe((data: UsuariosDTO)=>{
         if(data == undefined){
           this.logout();
+
+          if(this.isLogado){
+            alert('Login ou senha incorretos');
+          }
         }
         else{
-          this.loggedIn. next(true);
+          localStorage.setItem('idusuario', data.id.toString());
+          this.nomeUsuario.next(data.nome);
+          this.loggedIn.next(true);
           this.router.navigate(['/']);
         }
       })
-      
     }
   }
 
   logout() {
+    localStorage.removeItem('idusuario');
+    localStorage.removeItem('nomeusuario');
     this.loggedIn.next(false);
     this.router.navigate(['/login']);
   }

@@ -8,7 +8,9 @@ import { AgendamentoService } from '../agendamento.service';
 })
 export class AgendamentoComponent implements OnInit {
 
-  constructor(private agendamentoService: AgendamentoService) { }
+  constructor(
+    private agendamentoService: AgendamentoService
+    ) { }
 
   displayedColumns: string[] = ['ID', 'Data', 'Aluno', 'Professor'];
   dataSource = [];
@@ -18,7 +20,8 @@ export class AgendamentoComponent implements OnInit {
   }
 
   listarAgendamentos(): void{
-    this.agendamentoService.obterTodos().subscribe((data: any[])=>{
+    var idusuario = localStorage.getItem('idusuario');
+    this.agendamentoService.obterTodos(idusuario.toString()).subscribe((data: any[])=>{
 			this.dataSource = data;
 		})
   }

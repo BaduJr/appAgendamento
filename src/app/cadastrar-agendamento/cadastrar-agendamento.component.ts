@@ -19,7 +19,7 @@ export class CadastrarAgendamentoComponent implements OnInit {
   dataMinima: Date;
   agendamentoForm = new FormGroup ({
     data: new FormControl(),
-    aluno: new FormControl('1'),
+    aluno: new FormControl(),
     professor: new FormControl()
   });
 
@@ -35,9 +35,11 @@ export class CadastrarAgendamentoComponent implements OnInit {
     const dataAtual = new Date();
     this.dataMinima = dataAtual;
 
+    var idusuario = localStorage.getItem('idusuario');
+
     this.agendamentoForm = this.formBuilder.group({
       data: ['', Validators.required],
-      aluno: ['1'],
+      aluno: [idusuario],
       professor: ['', Validators.required]
     });
   }
