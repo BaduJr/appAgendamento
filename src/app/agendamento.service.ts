@@ -6,8 +6,9 @@ import { Injectable } from '@angular/core';
 })
 export class AgendamentoService {
 
-  private SERVER_URL = "http://localhost:3000/agendamento";
+  //private SERVER_URL = "http://localhost:3000/agendamento";
   //private SERVER_URL = "http://3.14.86.122:3000/";
+  private SERVER_URL = "http://3.16.161.108:3000/agendamento";
 
   constructor(private httpClient: HttpClient) { }
 

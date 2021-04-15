@@ -9,8 +9,8 @@ import { UsuariosDTO } from './usuario.dto';
 })
 export class UsuariosService {
 
-  private SERVER_URL = "http://localhost:3000/usuarios";
-  //private SERVER_URL = "http://3.14.86.122:3000/";
+  //private SERVER_URL = "http://localhost:3000/usuarios";
+  private SERVER_URL = "http://3.16.161.108:3000/usuarios";
 
   constructor(private httpClient: HttpClient) { }
 
